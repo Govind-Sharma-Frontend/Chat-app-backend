@@ -1,12 +1,18 @@
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
+const { buildSchema } = require("graphql");
 
-const UserSchema = mongoose.Schema({
-  name: { type: String, required: true },
-  email: { type: String, required: true },
+const UserSchema = buildSchema(`  
+ 
 
-  mobileNumber: { type: String, required: true },
+type User {
+      id:ID
+      name: String
+      mobileNumber:Int
+      email:String
+      password:String
+}
 
-  password: { type: String, required: true },
-});
+`);
 
-module.exports.User = mongoose.model('users',UserSchema) 
+// module.exports.User = mongoose.model("users", UserSchema);
+module.exports = UserSchema;
