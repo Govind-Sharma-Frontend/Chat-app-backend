@@ -1,18 +1,10 @@
-// const mongoose = require("mongoose");
-const { buildSchema } = require("graphql");
+const mongoose = require("mongoose");
 
-const UserSchema = buildSchema(`  
- 
+const UserSchema = mongoose.Schema({
+      name:{type:String},
+      mobileNumber:{type:String},         
+      email:{type:String},
+      password:{type:String}
+})
 
-type User {
-      id:ID
-      name: String
-      mobileNumber:Int
-      email:String
-      password:String
-}
-
-`);
-
-// module.exports.User = mongoose.model("users", UserSchema);
-module.exports = UserSchema;
+module.exports.User = mongoose.model("users", UserSchema);
